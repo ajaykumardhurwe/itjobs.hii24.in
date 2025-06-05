@@ -10,6 +10,7 @@
 //   const [endDate, setEndDate] = useState('');
 //   const [locationFilter, setLocationFilter] = useState('');
 //   const [jobProfileFilter, setJobProfileFilter] = useState('');
+//   // const [JobLink, setJobLink] = useState('');
 
 //   const navigate = useNavigate();
 
@@ -95,7 +96,7 @@
 //           className={`px-4 py-2 rounded ${activeTab === 'private' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'}`}
 //           onClick={() => setActiveTab('private')}
 //         >
-//           🏢 Companies Job List in 2025
+//           🏢 It Companies Job List in 2025
 //         </button>
 //       </div>
 
@@ -107,7 +108,46 @@
 //           </span>
 //           <select className="border rounded px-2 py-1" value={locationFilter} onChange={(e) => setLocationFilter(e.target.value)}>
 //             <option value="">All Locations</option>
-//             {['Bilaspur', 'Bhilai', 'Durg', 'Kawardha', 'Raipur', 'Rajnandgoan'].map((loc, i) => (
+//             {
+//            [
+//   'Bengaluru',
+//   'Hyderabad',
+//   'Mumbai',
+//   'Pune',
+
+
+//              'New Delhi',
+//   'Noida',
+//   'Ahmedabad',
+//   'Bhopal',
+//   'Bhubaneswar',
+//   'Chandigarh',
+//   'Chennai',
+//   'Coimbatore',
+//   'Dehradun',
+//   'Goa',
+//   'Gurgaon',
+//   'Gwalior',
+//   'Indore',
+//   'Jaipur',
+//   'Jalandhar',
+//   'Kolkata',
+//   'Lucknow',
+//   'Madurai',
+//   'Mysuru',
+//   'Nagpur',
+//   'Raipur',
+//   'Rajkot',
+//   'Renigunta',
+//   'Surat',
+//   'Tenkasi',
+//   'Thiruvananthapuram',
+//   'Trichy',
+//   'Vadodara',
+//   'Visakhapatnam'
+// ]
+
+// .map((loc, i) => (
 //               <option key={i} value={loc}>{loc}</option>
 //             ))}
 //           </select>
@@ -117,7 +157,69 @@
 //           <span>💼 Job Profile:</span>
 //           <select className="border rounded px-2 py-1" value={jobProfileFilter} onChange={(e) => setJobProfileFilter(e.target.value)}>
 //             <option value="">All Profiles</option>
-//             {['SDE', 'BDA', 'SWE', 'Intern', 'HR'].map((profile, i) => (
+//             {
+//             // ['SDE', 'BDA', 'SWE', 'Intern', 'HR']
+//             [
+//               'Frontend Developer',
+//   'Full Stack Developer',
+//   'Mobile App Developer',
+
+//   'Cloud Engineer',
+//  'Data Analyst',
+//   'Data Engineer',
+//   'Data Scientist',
+//   'AI Engineer',
+//   'Agile Coach',
+//   'Automation Test Engineer',
+//   'Backend Developer',
+//   'Blockchain Developer',
+//   'Business Analyst',
+//   'Business Intelligence Analyst',
+//   'Cloud Solutions Architect',
+//   'CI/CD Engineer',
+//   'Computer Vision Engineer',
+//   'CRM Developer',
+//   'Cybersecurity Consultant',
+//   'Database Administrator',
+//   'Deep Learning Engineer',
+//   'DevOps Engineer',
+//   'ERP Consultant',
+//   'Ethical Hacker',
+//   'Game Developer',
+//   'Information Security Manager',
+//   'Infrastructure Engineer',
+//   'Interaction Designer',
+//   'IoT Developer',
+//   'IT Auditor',
+//   'IT Consultant',
+//   'IT Support Specialist',
+//   'Kubernetes Engineer',
+//   'Machine Learning Engineer',
+//   'Manual Tester',
+//   'Network Engineer',
+//   'NLP Engineer',
+//   'Performance Tester',
+//   'Pre-Sales Engineer',
+//   'Product Designer',
+//   'Product Manager',
+//   'Project Manager',
+//   'QA Engineer',
+//   'Scrum Master',
+//   'Security Analyst',
+//   'Security Engineer',
+//   'Security Tester',
+//   'Site Reliability Engineer',
+//   'SOC Analyst',
+//   'Software Developer',
+//   'System Administrator',
+//   'Technical Writer',
+//   'UI Designer',
+//   'UX Designer',
+//   'UX Researcher',
+//   'Web Developer'
+// ]
+
+//             .map((profile, i) => (
 //               <option key={i} value={profile}>{profile}</option>
 //             ))}
 //           </select>
@@ -134,16 +236,34 @@
 //                   <img src={job['Image Link']} alt={job['Job Title']} className="w-12 h-12 rounded-full border" />
 //                   <div>
 //                     <div className="text-lg font-medium">{job['Job Title']}</div>
-//                     <div className="text-sm text-gray-600">{job['Organization/Company Name']}</div>
+//                     <div className="text-sm text-gray-600">{job['Description']}</div>
 //                     <div className="text-sm text-gray-500">
 //                       <div className="flex items-center space-x-1"><FaMapMarkerAlt className="text-orange-500" /> <span>{job['Location'] || 'Not specified'}</span></div>
-//                       <div className="flex items-center space-x-1"><FaUserTie className="text-purple-500" /> <span>Profile: {job['Job Profile']}</span></div>
+//                       <div className="flex items-center space-x-1"> <span>🏢Company: {job['Organization/Company Name']}</span></div>
+//        <button 
+//   onClick={() => window.open(job['Job Link'], '_blank')}
+//   className="bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600 flex items-center gap-2"
+// >
+//   <FaShare />
+//   {/* <FaWhatsapp /> */}
+//   <span>Read More</span>
+// </button>
+
 //                     </div>
 //                   </div>
 //                 </div>
-//                 <button onClick={() => shareOnWhatsApp(job)} className="text-green-600 text-2xl ml-2">
-//                   <FaShare /> <FaWhatsapp />
-//                 </button>
+//                 <div className="flex flex-col space-y-1 items-center">
+//                   <button
+//                     onClick={() => shareOnWhatsApp(job)}
+//                     className="text-green-600 text-2xl"
+//                     title="Share on WhatsApp"
+//                   >
+//                     <FaShare /> <FaWhatsapp />
+//                   </button>
+               
+
+           
+//                 </div>
 //               </li>
 //             ))}
 //           </ul>
@@ -165,6 +285,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FaMapMarkerAlt, FaWhatsapp, FaShare, FaCalendar, FaUserTie } from 'react-icons/fa';
@@ -177,7 +310,6 @@ export function Jobs() {
   const [endDate, setEndDate] = useState('');
   const [locationFilter, setLocationFilter] = useState('');
   const [jobProfileFilter, setJobProfileFilter] = useState('');
-  // const [JobLink, setJobLink] = useState('');
 
   const navigate = useNavigate();
 
@@ -212,6 +344,18 @@ export function Jobs() {
 
     fetchData();
   }, [activeTab]);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//pl26845957.profitableratecpm.com/8b/43/58/8b4358898221501481e3f4a17941c967.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const handleFilter = () => {
     const filtered = jobsData.filter(job => {
@@ -263,7 +407,7 @@ Apply now! ✅`;
           className={`px-4 py-2 rounded ${activeTab === 'private' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'}`}
           onClick={() => setActiveTab('private')}
         >
-          🏢 It Companies Job List in 2025
+          🏢 IT Companies Job List in 2025
         </button>
       </div>
 
@@ -275,46 +419,12 @@ Apply now! ✅`;
           </span>
           <select className="border rounded px-2 py-1" value={locationFilter} onChange={(e) => setLocationFilter(e.target.value)}>
             <option value="">All Locations</option>
-            {
-           [
-  'Bengaluru',
-  'Hyderabad',
-  'Mumbai',
-  'Pune',
-
-
-             'New Delhi',
-  'Noida',
-  'Ahmedabad',
-  'Bhopal',
-  'Bhubaneswar',
-  'Chandigarh',
-  'Chennai',
-  'Coimbatore',
-  'Dehradun',
-  'Goa',
-  'Gurgaon',
-  'Gwalior',
-  'Indore',
-  'Jaipur',
-  'Jalandhar',
-  'Kolkata',
-  'Lucknow',
-  'Madurai',
-  'Mysuru',
-  'Nagpur',
-  'Raipur',
-  'Rajkot',
-  'Renigunta',
-  'Surat',
-  'Tenkasi',
-  'Thiruvananthapuram',
-  'Trichy',
-  'Vadodara',
-  'Visakhapatnam'
-]
-
-.map((loc, i) => (
+            {[
+              'Bengaluru', 'Hyderabad', 'Mumbai', 'Pune', 'New Delhi', 'Noida', 'Ahmedabad', 'Bhopal',
+              'Bhubaneswar', 'Chandigarh', 'Chennai', 'Coimbatore', 'Dehradun', 'Goa', 'Gurgaon', 'Gwalior',
+              'Indore', 'Jaipur', 'Jalandhar', 'Kolkata', 'Lucknow', 'Madurai', 'Mysuru', 'Nagpur', 'Raipur',
+              'Rajkot', 'Renigunta', 'Surat', 'Tenkasi', 'Thiruvananthapuram', 'Trichy', 'Vadodara', 'Visakhapatnam'
+            ].map((loc, i) => (
               <option key={i} value={loc}>{loc}</option>
             ))}
           </select>
@@ -324,69 +434,20 @@ Apply now! ✅`;
           <span>💼 Job Profile:</span>
           <select className="border rounded px-2 py-1" value={jobProfileFilter} onChange={(e) => setJobProfileFilter(e.target.value)}>
             <option value="">All Profiles</option>
-            {
-            // ['SDE', 'BDA', 'SWE', 'Intern', 'HR']
-            [
-              'Frontend Developer',
-  'Full Stack Developer',
-  'Mobile App Developer',
-
-  'Cloud Engineer',
- 'Data Analyst',
-  'Data Engineer',
-  'Data Scientist',
-  'AI Engineer',
-  'Agile Coach',
-  'Automation Test Engineer',
-  'Backend Developer',
-  'Blockchain Developer',
-  'Business Analyst',
-  'Business Intelligence Analyst',
-  'Cloud Solutions Architect',
-  'CI/CD Engineer',
-  'Computer Vision Engineer',
-  'CRM Developer',
-  'Cybersecurity Consultant',
-  'Database Administrator',
-  'Deep Learning Engineer',
-  'DevOps Engineer',
-  'ERP Consultant',
-  'Ethical Hacker',
-  'Game Developer',
-  'Information Security Manager',
-  'Infrastructure Engineer',
-  'Interaction Designer',
-  'IoT Developer',
-  'IT Auditor',
-  'IT Consultant',
-  'IT Support Specialist',
-  'Kubernetes Engineer',
-  'Machine Learning Engineer',
-  'Manual Tester',
-  'Network Engineer',
-  'NLP Engineer',
-  'Performance Tester',
-  'Pre-Sales Engineer',
-  'Product Designer',
-  'Product Manager',
-  'Project Manager',
-  'QA Engineer',
-  'Scrum Master',
-  'Security Analyst',
-  'Security Engineer',
-  'Security Tester',
-  'Site Reliability Engineer',
-  'SOC Analyst',
-  'Software Developer',
-  'System Administrator',
-  'Technical Writer',
-  'UI Designer',
-  'UX Designer',
-  'UX Researcher',
-  'Web Developer'
-]
-
-            .map((profile, i) => (
+            {[
+              'Frontend Developer', 'Full Stack Developer', 'Mobile App Developer', 'Cloud Engineer', 'Data Analyst',
+              'Data Engineer', 'Data Scientist', 'AI Engineer', 'Agile Coach', 'Automation Test Engineer',
+              'Backend Developer', 'Blockchain Developer', 'Business Analyst', 'Business Intelligence Analyst',
+              'Cloud Solutions Architect', 'CI/CD Engineer', 'Computer Vision Engineer', 'CRM Developer',
+              'Cybersecurity Consultant', 'Database Administrator', 'Deep Learning Engineer', 'DevOps Engineer',
+              'ERP Consultant', 'Ethical Hacker', 'Game Developer', 'Information Security Manager', 'Infrastructure Engineer',
+              'Interaction Designer', 'IoT Developer', 'IT Auditor', 'IT Consultant', 'IT Support Specialist',
+              'Kubernetes Engineer', 'Machine Learning Engineer', 'Manual Tester', 'Network Engineer', 'NLP Engineer',
+              'Performance Tester', 'Pre-Sales Engineer', 'Product Designer', 'Product Manager', 'Project Manager',
+              'QA Engineer', 'Scrum Master', 'Security Analyst', 'Security Engineer', 'Security Tester',
+              'Site Reliability Engineer', 'SOC Analyst', 'Software Developer', 'System Administrator',
+              'Technical Writer', 'UI Designer', 'UX Designer', 'UX Researcher', 'Web Developer'
+            ].map((profile, i) => (
               <option key={i} value={profile}>{profile}</option>
             ))}
           </select>
@@ -407,15 +468,14 @@ Apply now! ✅`;
                     <div className="text-sm text-gray-500">
                       <div className="flex items-center space-x-1"><FaMapMarkerAlt className="text-orange-500" /> <span>{job['Location'] || 'Not specified'}</span></div>
                       <div className="flex items-center space-x-1"> <span>🏢Company: {job['Organization/Company Name']}</span></div>
-       <button 
-  onClick={() => window.open(job['Job Link'], '_blank')}
-  className="bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600 flex items-center gap-2"
->
-  <FaShare />
-  {/* <FaWhatsapp /> */}
-  <span>Read More</span>
-</button>
-
+                      <button 
+                        onClick={() => window.open(job['Job Link'], '_blank')}
+                        className="bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600 flex items-center gap-2 mt-1"
+                      >
+                        <FaShare />
+                        <FaWhatsapp />
+                        <span>Read More</span>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -427,9 +487,6 @@ Apply now! ✅`;
                   >
                     <FaShare /> <FaWhatsapp />
                   </button>
-               
-
-           
                 </div>
               </li>
             ))}
